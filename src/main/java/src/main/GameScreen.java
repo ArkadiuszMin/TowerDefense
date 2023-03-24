@@ -12,12 +12,12 @@ public class GameScreen extends JPanel {
     private Random random;
     private BufferedImage img;
 
+
+
     private ArrayList<BufferedImage> sprites = new ArrayList<>();
     public GameScreen(BufferedImage img){
         this.img = img;
-
         loadObject();
-
         this.random = new Random();
     }
 
@@ -31,11 +31,13 @@ public class GameScreen extends JPanel {
 
     public void paintComponent(Graphics g){
         super.paintComponent(g);
-        g.drawImage(this.sprites.get(19), 0, 0, null);
 
-
+        for(int i=0; i<20; i++){
+            for(int j=0; j<20; j++){
+                g.drawImage(sprites.get(random.nextInt(100)), i*32, j*32, null);
+            }
+        }
     }
-
     private Color getRandomColor(){
         int red = random.nextInt(256);
         int green = random.nextInt(256);
